@@ -1,0 +1,22 @@
+{
+  "name": "battle-city-online",
+  "description": "Multiplayer HTML5 implementation of battle city game",
+  "version": "0.0.1",
+  "author": "Ruslan Panasiuk <solver@tut.by> and other guys",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unrealsolver/battle-city-online.git"
+  },
+  "dependencies": {
+    "express": "4.6.x"
+  },
+  "devDependencies": {
+    "coffee-script": "1.7.x",
+    "gulp": "3.8.x",
+    "gulp-coffee": "2.1.x",
+    "gulp-nodemon": "1.0.x",
+    "gulp-util": "3.0.x"
+  },
+  "engine": "node0.10"
+}
+
