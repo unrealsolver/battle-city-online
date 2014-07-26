@@ -2,8 +2,9 @@ var express = require('express')
 
 var config = {
   port: 3000,
-  serverBuildDir: '.server-build',
-  clientBuildDir: '.client-build',
+  serverBuildDir: '.server-build/',
+  clientBuildDir: '.client-build/',
+  clientScriptDir: 'client/scripts/',
 }
 
 module.exports = config

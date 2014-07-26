@@ -15,8 +15,9 @@
     "gulp": "3.8.x",
     "gulp-coffee": "2.1.x",
     "gulp-nodemon": "1.0.x",
+    "gulp-shell": "^0.2.8",
+    "gulp-symlink": "^1.1.0",
     "gulp-util": "3.0.x"
   },
   "engine": "node0.10"
 }
-
