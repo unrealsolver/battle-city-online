@@ -1,0 +1,23 @@
+{
+  "name": "bco",
+  "version": "0.0.0",
+  "homepage": "https://github.com/unrealsolver/battle-city-online",
+  "authors": [
+    "Ruslan Panasiuk <solver@tut.by>"
+  ],
+  "description": "see README",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pure": "~0.5.0",
+    "underscore": "~1.6.0",
+    "angular": "~1.2.21"
+  }
+}
