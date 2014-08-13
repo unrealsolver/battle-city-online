@@ -19,6 +19,7 @@ gulp.task 'client-html', ->
 
 gulp.task 'client-watch', ->
   gulp.watch config.clientScriptDir+'**/*.coffee', ['client-coffee']
+  gulp.watch 'client/index.html', ['client-html']
 
 gulp.task 'client-deps', ->
   gulp.src('./bower_components/')
