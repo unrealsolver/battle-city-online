@@ -11,14 +11,14 @@ config = require './config'
 gulp.task 'client-coffee', ->
   gulp.src(config.clientScriptDir+'/**/*.coffee')
     .pipe(coffee())
-    .pipe(gulp.dest config.clientBuildDir)
+    .pipe(gulp.dest config.clientBuildDir + '/scripts/')
 
 gulp.task 'client-html', ->
   gulp.src('client/index.html')
     .pipe(gulp.dest config.clientBuildDir)
 
 gulp.task 'client-watch', ->
-  gulp.watch config.clientScriptDir+'**/*.coffee', ['client-coffee']
+  gulp.watch config.clientScriptDir+'/**/*.coffee', ['client-coffee']
   gulp.watch 'client/index.html', ['client-html']
 
 gulp.task 'client-deps', ->
