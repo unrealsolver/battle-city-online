@@ -5,6 +5,7 @@ var config = {
   serverBuildDir: '.server-build/',
   clientBuildDir: '.client-build/',
   clientScriptDir: 'client/scripts/',
+  clientViewDir: 'client/views/',
 }
 
 module.exports = config
