@@ -2,18 +2,16 @@ doctype html
 html
   head
     link(rel="stylesheet", href="/styles/components/pure/pure-min.css")
+    link(rel="stylesheet", href="/styles/main.css")
   body
     div(ng-app="app")
       .header
-        .pure-menu.pure-menu-open.pure-menu-horizontal(style="background: #eee")
-          a.pure-menu-heading(style="font-size: 32px") Battle City Online!
-      .content(style="width: 1024px; margin-left: auto; margin-right: auto")
+        .pure-menu.pure-menu-open.pure-menu-horizontal
+          a.pure-menu-heading Battle City Online!
+      .content
         h1 Ur Welcome!
         input(type="number", ng-init="val=42", ng-model="val")
         strong {{val}}
-
-        div(style="margin-top: 20px")
-          button.pure-button Press!
 
         .pure-g
           .pure-u-1-3
