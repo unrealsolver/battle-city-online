@@ -1,4 +1,4 @@
-renderer = new PIXI.WebGLRenderer 800, 600
+renderer = new PIXI.WebGLRenderer 1024, 600
 document.getElementById('pixi-container').appendChild(renderer.view)
 
 stage = new PIXI.Stage 0x66FF99
