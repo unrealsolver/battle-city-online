@@ -1,6 +1,7 @@
 gulp   = require 'gulp'
 gutil  = require 'gulp-util'
 coffee = require 'gulp-coffee'
+concat = require 'gulp-concat'
 nodemon= require 'gulp-nodemon'
 symlink= require 'gulp-sym'
 jade   = require 'gulp-jade'
@@ -13,6 +14,7 @@ config = require './config'
 gulp.task 'client-coffee', ->
   gulp.src(config.clientScriptDir+'**/*.coffee')
     .pipe(coffee())
+    .pipe(concat 'app.js')
     .pipe(gulp.dest config.clientBuildDir + '/scripts/')
 
 gulp.task 'client-html', ->

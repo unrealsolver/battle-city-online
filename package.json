@@ -15,9 +15,10 @@
     "coffee-script": "1.7.x",
     "gulp": "3.8.x",
     "gulp-coffee": "2.1.x",
+    "gulp-concat": "2.3.x",
     "gulp-jade": "0.7.x",
     "gulp-nodemon": "1.0.x",
-    "gulp-sass": "^0.7.3",
+    "gulp-sass": "0.7.x",
     "gulp-sym": "0.0.13",
     "gulp-util": "3.0.x"
   },
