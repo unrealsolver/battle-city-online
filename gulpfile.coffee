@@ -41,7 +41,8 @@ gulp.task 'client-deps', ->
   gulp.src('./bower_components/')
     .pipe(symlink(config.clientBuildDir+'/scripts/components/', force: true))
     .pipe(symlink(config.clientBuildDir+'/styles/components/', force: true))
-
+  gulp.src('./client/vendor/')
+    .pipe(symlink(config.clientBuildDir+'/scripts/vendor/', force: true))
 
 gulp.task 'nodemon', ->
   nodemon {script: './server/app.js'}
