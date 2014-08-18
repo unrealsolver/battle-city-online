@@ -6,30 +6,79 @@ stats = new Stats()
 stats.setMode 0
 pixiContainer.appendChild stats.domElement
 
-stage = new PIXI.Stage 0x66FF99
+stage = new PIXI.Stage 0xefefff
 
-rect = new PIXI.Graphics()
-rect.lineStyle 5, 0xFF6F26, 1
-rect.drawRect 0, 0, 100, 100
-rect.x = 200
-rect.y = 200
-rect.pivot = new PIXI.Point(50, 50)
-rect.v = 5
+player = new PIXI.DisplayObjectContainer()
+player.xchildren =
+  body: do ->
+    g = new PIXI.Graphics()
+    g.lineStyle 5, 0xFF6F26, .8
+    g.drawRect 0, 0, 50, 50
+    #g.pivot = new PIXI.Point 25, 25
+    #g.x = 25
+    #g.y = 25
+    g
+  gun: do ->
+    g = new PIXI.Graphics()
+    g.lineStyle 4, 0x1F4FE4, .8
+    g.drawRect 22, 20, 6, -52
+    #g.pivot = new PIXI.Point 25, 25
+    #g.x = 25
+    #g.y = 25
+    g
+player.addChild player.xchildren.body
+player.addChild player.xchildren.gun
+player.x = 500
+player.y = 300
+player.pivot = x: 25, y: 25
+player.xv = 5
+player.xdirection = 0
+player.xshoot = ->
+  spawnProjectile @x, @y, @rotation
+player.xupdate = ->
+  @rotation = @xdirection * Math.PI / 2
+stage.addChild player
 
-stage.addChild rect
+spawnProjectile = (x, y, rot) ->
+  projectile = new PIXI.DisplayObjectContainer()
+  projectile.xchildren =
+    ball: do ->
+      g = new PIXI.Graphics()
+      g.lineStyle 4, 0x222222, 1
+      g.drawCircle 0, 0, 6
+  projectile.addChild projectile.xchildren.ball
+  projectile.x = x
+  projectile.y = y
+  projectile.rotation = rot
+  projectile.xspd = 15
+  projectile.xv =
+    x: projectile.xspd * Math.sin rot
+    y: projectile.xspd * -Math.cos rot
+  projectile.xupdate = ->
+    @x += @xv.x
+    @y += @xv.y
+  stage.addChild projectile
+
+kd.SPACE.press ->
+  player.xshoot()
 
 animate = ->
   stats.begin()
 
-  rect.rotation += 0.05
   if kd.UP.isDown()
-    rect.y -= rect.v
+    player.y -= player.xv
+    player.xdirection = 0
   if kd.DOWN.isDown()
-    rect.y += rect.v
+    player.y += player.xv
+    player.xdirection = 2
   if kd.LEFT.isDown()
-    rect.x -= rect.v
+    player.x -= player.xv
+    player.xdirection = 3
   if kd.RIGHT.isDown()
-    rect.x += rect.v
+    player.x += player.xv
+    player.xdirection = 1
+
+  _.each stage.children, (d) -> d.xupdate()
 
   renderer.render stage
   
